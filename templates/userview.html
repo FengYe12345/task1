@@ -1,0 +1,45 @@
+﻿
+{% extends '_blank.html' %}
+{% block content %}
+	<table border="3"  width="500" bgcolor="aqua" align="center" cellpadding="5" cellspacing="1"> 
+{% for i in end_day %}
+    	<tr align="center" bgcolor="white" height="50" onmouseover="this.bgColor='yellow'" onmouseout="this.bgColor='white'">
+	<td>设备号码</td>
+	<td>{{ i[2] }}</td>
+</tr>
+
+	<tr align="center" bgcolor="white" height="50" onmouseover="this.bgColor='yellow'" onmouseout="this.bgColor='white'">
+	<td>预计剩余天数</td>
+	<td>{{ i[1] }}天</td>
+</tr>
+    	<tr align="center" bgcolor="white" height="50" onmouseover="this.bgColor='yellow'" onmouseout="this.bgColor='white'">
+	<td>已使用流量</td>
+	<td>{{ i[3] }}</td>
+</tr>
+    </tr>
+    	<tr align="center" bgcolor="white" height="50" onmouseover="this.bgColor='yellow'" onmouseout="this.bgColor='white'">
+	<td>总流量</td>
+	<td>{{ i[4] }}</td>
+</tr>
+    </tr>
+    	<tr align="center" bgcolor="white" height="50" onmouseover="this.bgColor='yellow'" onmouseout="this.bgColor='white'">
+	<td>剩余流量</td>
+	<td>{{ i[5] }}</td>
+</tr>
+    </tr>
+    	<tr align="center" bgcolor="white" height="50" onmouseover="this.bgColor='yellow'" onmouseout="this.bgColor='white'">
+	<td>套餐包名</td>
+	<td>{{ i[6] }}</td>
+</tr>
+    </tr>
+    	<tr align="center" bgcolor="white" height="50" onmouseover="this.bgColor='yellow'" onmouseout="this.bgColor='white'">
+	<td>已使用短信条数</td>
+	<td>{{ i[7] }}</td>
+
+</tr>
+    </table>
+{% endfor %}
+       {% if error %}
+            <font color = #ff7f50><h3><p>{{ error }}</p></h3></font>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,49 @@
+﻿{% extends '_blank.html' %}
+{% block content %}
+        <table class="table table-border table-bordered table-bg">
+				<thead>
+					<tr>
+						<th colspan="18" scope="col">信息统计</th>
+			</tr>
+					<tr class="text-c">
+                        <th>id</th>
+						<th>预计剩余使用天数</th>
+						<th>物联卡号</th>
+						<th>返回信息</th>
+						<th>已使用流量</th>
+{#						<th>collection_thread_id</th>#}
+{#                        <th>server_thread_id</th>#}
+                        <th>总流量</th>
+                        <th>剩余流量</th>
+                        <th>套餐包名</th>
+                        <th>已使用短信条数</th>
+                        <th><a href="{{ url_for('addcard') }}">添加</a></th>
+                        <th>/</th>
+{#                        <th><a href="{{ url_for('select') }}">查询</a></th>#}
+			</tr>
+		</thead>
+				<tbody>
+                <meta charset="UTF-8">
+                {% for data in data %}
+					<tr class="text-c">
+                        <td>{{ data[0] }}</td>
+						<td>{{ data[1] }}</td>
+						<td>{{ data[2] }}</td>
+						<td>{{ data[3] }}</td>
+						<td>{{ data[4] }}</td>
+{#						<td>{{ data.collection_thread_id }}</td>#}
+{#                        <td>{{ data.server_thread_id }}</td>#}
+                        <td>{{ data[5] }}</td>
+                        <td>{{ data[6] }}</td>
+                        <td>{{ data[7] }}</td>
+                        <td>{{ data[8] }}</td>
+                    <td><a href="{{ url_for("delete_end_day",id = data[0]) }}">删除</a></td>
+                     <td>/</td>
+			</tr>
+                    {% endfor %}
+                {% if error %}
+            <font color = #ff7f50><h3><p>{{ error }}</p></h3></font>
+    {% endif %}
+		</tbody>
+	</table>
+{% endblock %}
